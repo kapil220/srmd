@@ -6,7 +6,7 @@ const InspirationSection = () => {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <Image
-        src="/images/inspiration-bg.jpg"
+        src="/images/inspirational-bg.webp"
         alt="Shrimad Rajchandraji Statue"
         fill
         className="object-cover"
@@ -17,7 +17,8 @@ const InspirationSection = () => {
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="absolute right-20 top-1/2 -translate-y-1/2 max-w-xl bg-[#8B4513]/90 text-white p-12 rounded-3xl"
+        className="absolute m-4 top-[15%] left-0 md:top-[20%] md:right-12 md:left-auto 
+        max-w-xl bg-[#8B4513]/90 text-white p-12 rounded-3xl"
       >
         <h2 className="text-4xl font-semibold mb-4">
           The Inspiration – <br />
@@ -37,4 +38,4 @@ const InspirationSection = () => {
   );
 };
 
-export default InspirationSection; 
+export default InspirationSection;
