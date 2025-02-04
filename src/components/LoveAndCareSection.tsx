@@ -1,137 +1,104 @@
-import { useEffect, useState } from 'react';
-import Image from 'next/image'; // Import the Image component
+import { useState } from "react";
+import Image from "next/image";
 
 // Define the type for contentData keys
-type ContentKeys = 'hospital' | 'jivmaitridham' | 'vidyapeeth' | 'gurukul';
+type ContentKeys = "hospital" | "jivmaitridham" | "vidyapeeth" | "gurukul";
 
 const LoveAndCareSection = () => {
-  const [currentStep, setCurrentStep] = useState(0);
-  const [selectedLink, setSelectedLink] = useState<ContentKeys>('hospital'); // Default selected link
-
-  // Define image paths
-  const logoPath = "/path/to/logo.png"; // Replace with your logo path
-  const hospitalImagePath = "/path/to/hospital-image.jpg"; // Replace with hospital image path
-  const iconPaths = [
-    "/path/to/icon1.png", // Health Care
-    "/path/to/icon2.png", // Educational Care
-    "/path/to/icon3.png", // Child Care
-    "/path/to/icon4.png", // Woman Care
-    "/path/to/icon5.png", // Tribal Care
-    "/path/to/icon6.png", // Community Care
-    "/path/to/icon7.png", // Humanitarian Care
-    "/path/to/icon8.png", // Animal Care
-    "/path/to/icon9.png", // Environmental Care
-    "/path/to/icon10.png", // Emergency Relief Care
-  ];
+  const [selectedLink, setSelectedLink] = useState<ContentKeys>("hospital");
 
   const contentData = {
     hospital: {
-      image: hospitalImagePath,
+      image: "/images/hospital.webp",
       title: "Shrimad Rajchandra Hospital & Research Center",
-      description: "A multi-speciality, charitable hospital offering high-quality health care rarely seen in rural areas, at no cost or highly subsidized rates.",
+      description:
+        "A multi-speciality, charitable hospital offering high-quality health care rarely seen in rural areas, at no cost or highly subsidised rates.",
+      buttonText: "Learn More",
+      bgColor: "bg-[#e3c5a0]",
     },
     jivmaitridham: {
-      image: "/path/to/jivmaitridham-image.jpg", // Replace with actual image
+      image: "/images/animals.webp",
       title: "Shrimad Rajchandra Jivmaitridham",
-      description: "Description for Jivmaitridham.",
+      description: "Providing care and shelter to animals with compassion.",
+      buttonText: "Explore",
+      bgColor: "bg-[#d4af37]",
     },
     vidyapeeth: {
-      image: "/path/to/vidyapeeth-image.jpg", // Replace with actual image
+      image: "/images/vidhya.webp",
       title: "Shrimad Rajchandra Vidyapeeth",
-      description: "Description for Vidyapeeth.",
+      description:
+        "A modern science college improving accessibility of higher education for aspiring tribal youth; the first science college across 238 villages.",
+      buttonText: "Learn More",
+      bgColor: "bg-[#b98360]",
     },
     gurukul: {
-      image: "/path/to/gurukul-image.jpg", // Replace with actual image
+      image: "/images/gurukul.webp",
       title: "Shrimad Rajchandra Gurukul",
-      description: "Description for Gurukul.",
+      description: "A modern Gurukul offering quality education and values.",
+      buttonText: "Discover",
+      bgColor: "bg-[#8b5e3b]",
     },
   };
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (currentStep < 2) {
-        setCurrentStep((prev) => prev + 1); // Move to the next step
-      }
-    }, 4000); // Change after 4 seconds
-
-    return () => clearTimeout(timer); // Cleanup on unmount
-  }, [currentStep]);
-
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center bg-[#F0EDE5]">
-      {currentStep === 0 && (
-        <div className="text-center transition-opacity duration-1000">
-          <h1 className="text-6xl font-bold text-[#82622c]">Serve Others Selflessly</h1>
-          <div className="mt-8">
-            <img src={logoPath} alt="Logo" className="w-32" />
-          </div>
+    <div className="relative flex flex-col md:flex-row min-h-screen bg-[#F0EDE5] ">
+      {/* Left Fixed Section */}
+      <div className="w-full md:w-1/2 p-6  mt-36 self-start">
+        <Image src="/images/logo.png" alt="Logo" width={160} height={160} priority className="mb-6" />
+        <h2 className="text-3xl font-bold text-[#B25E1B] mb-4">Shrimad Rajchandra Love and Care</h2>
+        <p className="text-lg mb-8">
+          A benevolent initiative to offer service and bring joy to the underserved sections of society.
+        </p>
+        <div className="grid grid-cols-5 gap-4 mb-12">
+          {[...Array(10)].map((_, index) => (
+            <Image key={index} src={`/images/icon${index + 1}.png`} alt="" width={48} height={48} className="rounded-lg" />
+          ))}
         </div>
-      )}
-
-      {currentStep === 1 && (
-        <div className="flex flex-col items-center transition-opacity duration-1000">
-          <div className="text-center mb-8">
-            <img src={logoPath} alt="Logo" className="w-32" />
-          </div>
-          <div className="flex flex-wrap justify-center">
-            {iconPaths.map((iconPath, index) => (
-              <div key={index} className="m-4 text-center">
-                <img src={iconPath} alt={`Icon ${index + 1}`} className="w-16 rounded-full" />
-                <p>{`Icon ${index + 1}`}</p>
-              </div>
-            ))}
-          </div>
+        <div className="flex gap-4">
+          <button className="bg-[#B25E1B] text-white px-6 py-2 rounded-md transition-transform hover:scale-105">Volunteer</button>
+          <button className="bg-[#B25E1B] text-white px-6 py-2 rounded-md transition-transform hover:scale-105">Donate</button>
         </div>
-      )}
+      </div>
 
-      {currentStep === 2 && (
-        <div className="flex justify-between p-8 transition-opacity duration-1000">
-          {/* Left Section */}
-          <div className="w-1/2 text-left">
-            <img src={logoPath} alt="Logo" className="w-32 mb-4" />
-            <h2 className="text-4xl font-bold text-[#82622c]">Shrimad Rajchandra Love and Care</h2>
-            <p className="mt-4">
-              Shrimad Rajchandra Love and Care is a benevolent initiative to offer service and bring joy to the underserved sections of society.
-            </p>
-            <div className="flex flex-wrap justify-start mt-6">
-              {iconPaths.map((iconPath, index) => (
-                <div key={index} className="m-2 text-center">
-                  <img src={iconPath} alt={`Icon ${index + 1}`} className="w-16 rounded-full" />
-                  <p>{`Icon ${index + 1}`}</p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-6">
-              <button className="bg-[#82622c] text-white px-4 py-2 rounded-lg">Get Involved</button>
-            </div>
-          </div>
-
-          {/* Right Section */}
-          <div className="w-1/2 text-center">
-            <Image 
-              src={contentData[selectedLink].image} 
-              alt="Content" 
-              className="w-full" 
-              layout="responsive" // Optional: Adjust layout as needed
-              width={500} // Set appropriate width
-              height={300} // Set appropriate height
-            />
-            <h3 className="text-xl font-bold mt-4">{contentData[selectedLink].title}</h3>
-            <p>{contentData[selectedLink].description}</p>
-            <div className="mt-4">
-              <h4 className="text-lg font-bold">Related Links:</h4>
-              <ul className="list-disc list-inside">
-                <li onClick={() => setSelectedLink('hospital')} className="cursor-pointer">Shrimad Rajchandra Hospital</li>
-                <li onClick={() => setSelectedLink('jivmaitridham')} className="cursor-pointer">Shrimad Rajchandra Jivmaitridham</li>
-                <li onClick={() => setSelectedLink('vidyapeeth')} className="cursor-pointer">Shrimad Rajchandra Vidyapeeth</li>
-                <li onClick={() => setSelectedLink('gurukul')} className="cursor-pointer">Shrimad Rajchandra Gurukul</li>
-              </ul>
-            </div>
-          </div>
+      {/* Right Dynamic Section */}
+      <div className="w-full md:w-1/2 mt-36 ">
+        {/* Image Section */}
+        <div className=" ">
+          <Image
+            src={contentData[selectedLink].image}
+            alt={contentData[selectedLink].title}
+            width={600}
+            height={300}
+            className=" w-full h-[400px] transition-opacity duration-300"
+          />
         </div>
-      )}
+
+        {/* Links and Expanding Sections */}
+        <div className=" border-t ">
+          {Object.keys(contentData).map((key) => (
+            <div
+              key={key}
+              onMouseEnter={() => setSelectedLink(key as ContentKeys)}
+              className={`py-4 px-6 mb-2 cursor-pointer transition-all duration-300  overflow-hidden ${
+                selectedLink === key ? `${contentData[key as ContentKeys].bgColor} text-white` : "bg-[#F0EDE5] text-gray-700 hover:bg-[#e3c5a0]"
+              }`}
+              style={{ height: selectedLink === key ? "auto" : "50px" }}
+            >
+              <h3 className="text-lg font-semibold">{contentData[key as ContentKeys].title}</h3>
+              {selectedLink === key && (
+                <>
+                  <p className="mt-2 text-sm">{contentData[key as ContentKeys].description}</p>
+                  <button className="mt-2 bg-white text-[#B25E1B] px-4 py-2 rounded-md border border-[#B25E1B] hover:bg-[#B25E1B] hover:text-white transition">
+                    {contentData[key as ContentKeys].buttonText}
+                  </button>
+                </>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
 
-export default LoveAndCareSection; 
+export default LoveAndCareSection;

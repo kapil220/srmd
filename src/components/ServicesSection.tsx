@@ -163,7 +163,7 @@ const ServicesSection = () => {
             </motion.div>
           </div>
 
-          {/* Third row - single image */}
+         
           <motion.div
             key={services[4].title}
             className="relative group rounded-3xl overflow-hidden cursor-pointer aspect-[16/7]"
