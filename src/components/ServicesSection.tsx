@@ -32,17 +32,27 @@ const ServicesSection = () => {
     }
   ];
 
-  const servicesSectionRef = useRef<HTMLOptionElement>(null);
+  const servicesSectionRef = useRef<HTMLElement>(null);
+
 
   useEffect(() => {
-    // Set timeout for auto-scroll after 4 seconds
-    const timer = setTimeout(() => {
-      servicesSectionRef.current?.scrollIntoView({ 
-        behavior: 'smooth'
-      });
-    }, 4000);
+    // Check if the page has been visited before in this session
+    const isFirstVisit = sessionStorage.getItem('firstVisit');
 
-    return () => clearTimeout(timer);
+    // If it's the first visit, set a flag and trigger auto-scroll
+    if (!isFirstVisit) {
+      // Set timeout to scroll after 4 seconds
+      const timer = setTimeout(() => {
+        servicesSectionRef.current?.scrollIntoView({
+          behavior: 'smooth'
+        });
+
+        // Mark this visit in sessionStorage
+        sessionStorage.setItem('firstVisit', 'true');
+      }, 4000);
+
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const containerVariants = {
@@ -70,7 +80,7 @@ const ServicesSection = () => {
   return (
     <>
      
-      <section className="h-screen snap-start bg-orange-50 flex items-center justify-center">
+     <section className="h-screen snap-start bg-orange-50 flex items-center justify-center">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0 }}
@@ -78,7 +88,7 @@ const ServicesSection = () => {
             transition={{ duration: 1 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <motion.h2 
+            <motion.h2
               initial={{ y: 50 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -86,7 +96,6 @@ const ServicesSection = () => {
             >
               Realise One&apos;s True Self
             </motion.h2>
-           
           </motion.div>
         </div>
       </section>

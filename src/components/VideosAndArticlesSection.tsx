@@ -7,17 +7,17 @@ import { Pagination } from 'swiper/modules';
 import '../app/globals.css';
 
 const videos = [
-  { title: 'Shrimad Rajchandra Mission Dharampur - A Brief Introduction', image: '/path-to-video1.jpg', duration: '05:36' },
-  { title: 'Shrimad Rajchandra Love and Care - An Introduction', image: '/path-to-video2.jpg', duration: '28:51' },
-  { title: 'Shri Dharampur Tirth - Salient Features of the Jinmandir', image: '/path-to-video3.jpg', duration: '06:31' },
-  { title: 'A quick tip on how to change your habits', image: '/path-to-video4.jpg', duration: '02:46' },
+  { title: 'Shrimad Rajchandra Mission Dharampur - A Brief Introduction', image: '/images/photo1.webp', duration: '05:36' },
+  { title: 'Shrimad Rajchandra Love and Care - An Introduction', image: '/images/photo2.webp', duration: '28:51' },
+  { title: 'Shri Dharampur Tirth - Salient Features of the Jinmandir', image: '/images/photo3.webp', duration: '06:31' },
+  { title: 'A quick tip on how to change your habits', image: '/images/photo4.webp', duration: '02:46' },
 ];
 
 const articles = [
-  { title: 'The Art of Turning Within', image: '/path-to-article1.jpg', description: 'Have you ever caught yourself half-way through a fit of anger and realised its futility?' },
-  { title: 'The Miraculous Presence of the Master', image: '/path-to-article2.jpg', description: 'What is it that takes place when the disciple meets the Master?' },
-  { title: 'The True Meaning of Ahimsa', image: '/path-to-article3.jpg', description: 'Ahimsa is widely understood as "not harming or hurting others". But is this the complete meaning?' },
-  { title: 'Life - A Priceless Opportunity', image: '/path-to-article4.jpg', description: 'You are alive only if you have a higher purpose in life. Pujya Gurudevshri here tells us to...' },
+  { title: 'The Art of Turning Within', image: '/images/photo1.webp', description: 'Have you ever caught yourself half-way through a fit of anger and realised its futility?' },
+  { title: 'The Miraculous Presence of the Master', image: '/images/photo2.webp', description: 'What is it that takes place when the disciple meets the Master?' },
+  { title: 'The True Meaning of Ahimsa', image: '/images/photo3.webp', description: 'Ahimsa is widely understood as "not harming or hurting others". But is this the complete meaning?' },
+  { title: 'Life - A Priceless Opportunity', image: '/images/photo4.webp', description: 'You are alive only if you have a higher purpose in life. Pujya Gurudevshri here tells us to...' },
 ];
 
 const VideosAndArticlesSection = () => {

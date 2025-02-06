@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import { FiMenu } from "react-icons/fi";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,16 +17,18 @@ const Header = () => {
       {/* Mobile & Tablet Header */}
       <header className="mobile-header fixed top-10 right-0 left-0 w-11/12 h-16 bg-white shadow-md z-50 rounded-full mx-auto">
         <nav className="container mx-auto px-4 py-2 flex justify-between items-center">
-          <button onClick={toggleMenu} className="text-orange-600">
-            <span className="material-icons">menu</span>
-          </button>
+        <button onClick={toggleMenu}>
+          <FiMenu className="text-orange-600 p-2 rounded-md text-4xl" />
+        </button>
+
           
           <Link href="/" className="relative">
             <Image 
-              src="/images/logo1.webp"
+              src="/images/logo.svg"
               alt="SRMD Logo"
               width={40}
               height={40}
+              className="w-36 h-12"
             />
           </Link>
           

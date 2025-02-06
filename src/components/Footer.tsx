@@ -2,7 +2,7 @@ import { FaYoutube, FaFacebook,  FaInstagram, FaPinterest, FaLinkedin, FaVimeo, 
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-12 pt-32 px-6 h-screen">
+    <footer className="bg-black text-white py-12 pt-32 px-6 min-h-screen">
       <div className="max-w-8xl mx-auto mt-8">
         {/* Footer Top Sections */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-lg">

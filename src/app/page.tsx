@@ -1,8 +1,6 @@
 'use client';
 
-import Header from '@/components/Header';
 import LandingHero from '@/components/LandingHero';
-
 import ServicesSection from '@/components/ServicesSection';
 import InspirationSection from '@/components/InspirationSection';
 import FounderSection from '@/components/FounderSection';
@@ -15,27 +13,24 @@ import NewsEvents from '@/components/NewsEvents';
 import SchedulesPage from '@/components/SchedulesPage';
 import VideosAndArticlesSection from '@/components/VideosAndArticlesSection';
 import HeroSection from '@/components/HeroSection';
-import Footer from '@/components/Footer';
+
 const Home = () => {
   return (
-    <main className="overflow-y-auto">
+    <div className="overflow-y-auto">
       <LandingHero />
-      <Header />
-     
       <ServicesSection />
       <InspirationSection />
       <FounderSection />
       <AshramSection />
       <CentresSection />
       <LoveAndCareSection />
-      <YouthActivitiesSection /> 
+      <YouthActivitiesSection />
       <ChildrenActivities />
       <NewsEvents />
       <SchedulesPage />
       <VideosAndArticlesSection />
       <HeroSection />
-      <Footer />
-    </main>
+    </div>
   );
 };
 
