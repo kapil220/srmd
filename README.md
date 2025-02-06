@@ -8,7 +8,7 @@ Clone this repository to your local machine:
 bash
 Copy
 Edit
-git clone https://github.com/your-username/your-repo.git
+[git clone https://github.com/your-username/your-repo.git](https://github.com/kapil220/srmd)
 2. Install Dependencies
 Navigate to the project folder and install the required dependencies:
 
@@ -51,6 +51,7 @@ Learn Next.js – An interactive Next.js tutorial.
 You can also check out the Next.js GitHub repository. Your feedback and contributions are always welcome!
 
 Deployment
-To deploy your Next.js app, the easiest option is to use the Vercel Platform.
+Deployed on Vercel
+
 
 For detailed deployment instructions, refer to the Next.js Deployment Documentation.
