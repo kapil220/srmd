@@ -17,8 +17,8 @@ const StatBox = ({ number, title }: { number: string; title: string }) => (
   </div>
 );
 
-const CentreCard = ({ title, contact }: { title: string; contact: Contact }) => (
-  <div className="bg-[#82622c] p-4 lg:p-8 rounded-3xl text-white shadow-lg">
+const CentreCard = ({ title, contact }: { title: string; contact: Contact; bgColor?: string }) => (
+  <div className={`bg-gradient-to-r from-[#a17d3d] via-[#82622c] to-[#634a21] p-4 lg:p-8 rounded-3xl text-white shadow-lg`}>
     <h3 className="text-3xl mb-6">{title}</h3>
     <div className="space-y-4">
       <div className="flex items-center gap-4">
@@ -65,7 +65,7 @@ const CentreCard = ({ title, contact }: { title: string; contact: Contact }) => 
   </div>
 );
 
-// Add this custom hook at the top of the file
+
 const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -125,7 +125,7 @@ const CentresSection = () => {
     }
   ];
 
-  // Add pagination state
+
   const [currentPage, setCurrentPage] = useState(0);
   const centresPerPage = 1;
   const pageCount = Math.ceil(centres.length / centresPerPage);
@@ -135,22 +135,22 @@ const CentresSection = () => {
     (currentPage + 1) * centresPerPage
   );
 
-  // Show all centres for md screens and above
+ 
   const displayedCentresResponsive = isMobile ? displayedCentres : centres;
 
   return (
     <section className="min-h-screen bg-orange-100">
       <div className='pt-32 lg:pt-40'>
-        <div className="relative bg-[#82622c] py-20">
+        <div className="relative bg-gradient-to-r from-[#a17d3d] via-[#82622c] to-[#634a21] py-20">
           <Image
-            src="/images/world-map.png"
+            src="/images/worldmap.webp"
             alt="World Map"
             width={500}
-            height={300}
-            className="absolute right-0 top-0 opacity-20"
+            height={200}
+            className="absolute right-0 top-0 opacity-10  h-full"
           />
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 ">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat) => (
                 <StatBox key={stat.title} {...stat} />
               ))}
@@ -170,7 +170,7 @@ const CentresSection = () => {
             </Link>
           </div>
 
-          {/* Search Bar */}
+         
           <div className="relative mb-8 lg:hidden">
             <input
               type="text"
@@ -186,11 +186,13 @@ const CentresSection = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-16 ">
             {displayedCentresResponsive.map((centre) => (
-              <CentreCard key={centre.title} {...centre} />
+              <CentreCard 
+                key={centre.title} 
+                {...centre}
+              />
             ))}
           </div>
 
-          {/* Dot Pagination - Only visible on mobile */}
           <div className="flex md:hidden justify-center items-center mt-8 gap-2">
             {Array.from({ length: pageCount }).map((_, index) => (
               <button

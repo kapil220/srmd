@@ -15,7 +15,7 @@ const AshramSection = () => {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative h-screen w-full overflow-hidden ">
       <div className="absolute inset-0 w-screen h-screen">
         {Object.entries(images).map(([key, src]) => (
           <Image
@@ -35,10 +35,10 @@ const AshramSection = () => {
         initial={{ x: 100, opacity: 1 }}
         whileInView={{ x: 0, opacity: 0.8 }}
         transition={{ duration: 0.8 }}
-        className="absolute bottom-0 lg:right-0 lg:top-0 h-[40vh] lg:h-full w-full lg:w-[50%] bg-orange-100 lg:bg-transparent lg:bg-gradient-to-l lg:from-black/100 lg:to-transparent flex items-center text-black lg:text-white"
+        className="absolute bottom-0 lg:right-0  lg:top-0 h-[40vh] lg:h-full w-full lg:w-[50%] bg-orange-100 lg:bg-transparent lg:bg-gradient-to-l lg:from-black/100 lg:to-transparent flex items-center text-black lg:text-white"
       >
         <div className="px-6 lg:pr-20 text-center lg:text-right w-full">
-          <h2 className="text-3xl lg:text-5xl font-semibold mb-8 lg:mb-20">
+          <h2 className="text-2xl lg:text-5xl font-semibold mb-8 lg:mb-20">
             International Headquarters  <br />
             Shrimad Rajchandra Ashram, <br />
             Dharampur
@@ -58,7 +58,7 @@ const AshramSection = () => {
                 onMouseEnter={() => setActiveImage(link.image)}
                 onMouseLeave={() => setActiveImage('default')}
               >
-                <Link href={link.href} className="block text-xl lg:text-2xl">
+                <Link href={link.href} className="block text-xl lg:text-2xl ">
                   <div className="relative py-2 lg:py-4">
                     <div className="flex justify-between items-center px-4 lg:px-0">
                       <div className="text-left lg:text-right lg:w-full">

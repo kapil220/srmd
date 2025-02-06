@@ -13,24 +13,37 @@ const Header = () => {
 
   return (
     <>
-      {/* Header for small devices */}
-      <header className="fixed top-10 right-0 left-0 w-11/12 h-16 bg-white shadow-md z-50 rounded-full md:hidden mx-auto">
+      {/* Mobile & Tablet Header */}
+      <header className="mobile-header fixed top-10 right-0 left-0 w-11/12 h-16 bg-white shadow-md z-50 rounded-full mx-auto">
         <nav className="container mx-auto px-4 py-2 flex justify-between items-center">
+          <button onClick={toggleMenu} className="text-orange-600">
+            <span className="material-icons">menu</span>
+          </button>
+          
           <Link href="/" className="relative">
             <Image 
-              src="/logo.png"
+              src="/images/logo1.webp"
               alt="SRMD Logo"
               width={40}
               height={40}
             />
           </Link>
-          <button onClick={toggleMenu} className="text-orange-600">
-            {/* Hamburger Icon */}
-            <span className="material-icons">menu</span>
-          </button>
+          
+          <div className="flex items-center space-x-2">
+            <select 
+              value={language} 
+              onChange={(e) => setLanguage(e.target.value)} 
+              className="text-yellow-700 rounded px-2 py-1 text-sm"
+            >
+              <option value="en">English</option>
+              <option value="hi">Hindi</option>
+            </select>
+          </div>
         </nav>
+        
+        {/* Mobile & Tablet Menu */}
         {isMenuOpen && (
-          <div className="bg-orange-50 shadow-md">
+          <div className="absolute top-16 left-0 right-0 bg-orange-50 shadow-md rounded-b-2xl">
             <Link href="/login" className="block px-4 py-2 text-orange-600 hover:text-orange-700">Login</Link>
             <Link href="/inspiration" className="block px-4 py-2 text-orange-600 hover:text-orange-700">Inspiration</Link>
             <Link href="/founder" className="block px-4 py-2 text-orange-600 hover:text-orange-700">Founder</Link>
@@ -45,23 +58,22 @@ const Header = () => {
         )}
       </header>
 
-      {/* Header for larger devices */}
-      <header className="hidden md:block fixed top-10 right-0 left-0 w-11/12 bg-orange-50 shadow-md z-50 rounded-full mx-auto">
+      {/* Desktop Header */}
+      <header className="desktop-header fixed top-10 right-0 left-0 w-11/12 bg-white py-3 shadow-md z-50 rounded-full mx-auto">
         <nav className="container mx-auto px-8 py-2 flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <Link href="/" className="relative">
               <Image 
-                src="/logo.png"
+                src="/images/logo1.webp"
                 alt="SRMD Logo"
                 width={50}
                 height={50}
                 className="ml-4"
               />
             </Link>
-         
           </div>
           
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-6 text-lg">
             <Link href="/inspiration" className="text-gray-700 hover:text-orange-600 transition">Inspiration</Link>
             <Link href="/founder" className="text-gray-700 hover:text-orange-600 transition">Founder</Link>
             <Link href="/activities" className="text-gray-700 hover:text-orange-600 transition">Activities</Link>
@@ -78,11 +90,10 @@ const Header = () => {
             <select 
               value={language} 
               onChange={(e) => setLanguage(e.target.value)} 
-              className="border border-gray-300 rounded px-2 py-1 text-sm"
+              className="text-yellow-700 rounded px-2 py-1 text-sm"
             >
               <option value="en">English</option>
               <option value="hi">Hindi</option>
-              {/* Add other language options as needed */}
             </select>
             <button className="text-gray-700 hover:text-orange-600">
               <span className="material-icons">search</span>
@@ -94,4 +105,4 @@ const Header = () => {
   );
 };
 
-export default Header; 
+export default Header;
